@@ -1,0 +1,179 @@
+{
+  "departments": [
+    { "id": "ed", "name": "ED" },
+    { "id": "icu", "name": "ICU" },
+    { "id": "med_surg", "name": "Med-Surg" },
+    { "id": "maternity", "name": "Maternity" },
+    { "id": "pediatrics", "name": "Pediatrics" }
+  ],
+  "periods": [
+    {
+      "date": "2026-06-13",
+      "label": "Jun 13",
+      "departments": {
+        "ed": { "patientVolume": 152, "occupancyPct": 86.1, "avgWaitMinutes": 148, "staffingCoveragePct": 92.1 },
+        "icu": { "patientVolume": 42, "occupancyPct": 94.5, "avgWaitMinutes": 58, "staffingCoveragePct": 96.2 },
+        "med_surg": { "patientVolume": 124, "occupancyPct": 80.4, "avgWaitMinutes": 42, "staffingCoveragePct": 95.4 },
+        "maternity": { "patientVolume": 64, "occupancyPct": 74.6, "avgWaitMinutes": 30, "staffingCoveragePct": 97.6 },
+        "pediatrics": { "patientVolume": 58, "occupancyPct": 72.2, "avgWaitMinutes": 36, "staffingCoveragePct": 96.8 }
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "label": "Jun 14",
+      "departments": {
+        "ed": { "patientVolume": 158, "occupancyPct": 86.7, "avgWaitMinutes": 152, "staffingCoveragePct": 91.7 },
+        "icu": { "patientVolume": 43, "occupancyPct": 95.1, "avgWaitMinutes": 61, "staffingCoveragePct": 95.9 },
+        "med_surg": { "patientVolume": 126, "occupancyPct": 80.8, "avgWaitMinutes": 43, "staffingCoveragePct": 95.1 },
+        "maternity": { "patientVolume": 67, "occupancyPct": 74.9, "avgWaitMinutes": 31, "staffingCoveragePct": 97.3 },
+        "pediatrics": { "patientVolume": 60, "occupancyPct": 72.8, "avgWaitMinutes": 37, "staffingCoveragePct": 96.4 }
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "label": "Jun 15",
+      "departments": {
+        "ed": { "patientVolume": 161, "occupancyPct": 87.5, "avgWaitMinutes": 156, "staffingCoveragePct": 91.4 },
+        "icu": { "patientVolume": 44, "occupancyPct": 96.2, "avgWaitMinutes": 65, "staffingCoveragePct": 95.3 },
+        "med_surg": { "patientVolume": 128, "occupancyPct": 81.6, "avgWaitMinutes": 45, "staffingCoveragePct": 94.7 },
+        "maternity": { "patientVolume": 65, "occupancyPct": 75.2, "avgWaitMinutes": 31, "staffingCoveragePct": 97.1 },
+        "pediatrics": { "patientVolume": 62, "occupancyPct": 73.2, "avgWaitMinutes": 38, "staffingCoveragePct": 96.2 }
+      }
+    },
+    {
+      "date": "2026-06-16",
+      "label": "Jun 16",
+      "departments": {
+        "ed": { "patientVolume": 164, "occupancyPct": 88.3, "avgWaitMinutes": 162, "staffingCoveragePct": 91.0 },
+        "icu": { "patientVolume": 45, "occupancyPct": 97.1, "avgWaitMinutes": 70, "staffingCoveragePct": 94.8 },
+        "med_surg": { "patientVolume": 130, "occupancyPct": 82.4, "avgWaitMinutes": 46, "staffingCoveragePct": 94.3 },
+        "maternity": { "patientVolume": 66, "occupancyPct": 75.8, "avgWaitMinutes": 32, "staffingCoveragePct": 96.9 },
+        "pediatrics": { "patientVolume": 63, "occupancyPct": 74.1, "avgWaitMinutes": 40, "staffingCoveragePct": 95.9 }
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "label": "Jun 17",
+      "departments": {
+        "ed": { "patientVolume": 168, "occupancyPct": 89.1, "avgWaitMinutes": 168, "staffingCoveragePct": 90.6 },
+        "icu": { "patientVolume": 47, "occupancyPct": 98.4, "avgWaitMinutes": 76, "staffingCoveragePct": 94.2 },
+        "med_surg": { "patientVolume": 132, "occupancyPct": 83.1, "avgWaitMinutes": 47, "staffingCoveragePct": 94.0 },
+        "maternity": { "patientVolume": 68, "occupancyPct": 76.0, "avgWaitMinutes": 33, "staffingCoveragePct": 96.8 },
+        "pediatrics": { "patientVolume": 62, "occupancyPct": 74.3, "avgWaitMinutes": 40, "staffingCoveragePct": 95.7 }
+      }
+    },
+    {
+      "date": "2026-06-18",
+      "label": "Jun 18",
+      "departments": {
+        "ed": { "patientVolume": 171, "occupancyPct": 89.8, "avgWaitMinutes": 175, "staffingCoveragePct": 90.1 },
+        "icu": { "patientVolume": 48, "occupancyPct": 99.2, "avgWaitMinutes": 83, "staffingCoveragePct": 93.6 },
+        "med_surg": { "patientVolume": 134, "occupancyPct": 83.8, "avgWaitMinutes": 49, "staffingCoveragePct": 93.8 },
+        "maternity": { "patientVolume": 67, "occupancyPct": 76.3, "avgWaitMinutes": 34, "staffingCoveragePct": 96.7 },
+        "pediatrics": { "patientVolume": 64, "occupancyPct": 74.8, "avgWaitMinutes": 41, "staffingCoveragePct": 95.3 }
+      }
+    },
+    {
+      "date": "2026-06-19",
+      "label": "Jun 19",
+      "departments": {
+        "ed": { "patientVolume": 175, "occupancyPct": 90.4, "avgWaitMinutes": 184, "staffingCoveragePct": 89.7 },
+        "icu": { "patientVolume": 49, "occupancyPct": 100.1, "avgWaitMinutes": 92, "staffingCoveragePct": 92.8 },
+        "med_surg": { "patientVolume": 136, "occupancyPct": 84.6, "avgWaitMinutes": 51, "staffingCoveragePct": 93.4 },
+        "maternity": { "patientVolume": 69, "occupancyPct": 76.7, "avgWaitMinutes": 35, "staffingCoveragePct": 96.3 },
+        "pediatrics": { "patientVolume": 65, "occupancyPct": 75.2, "avgWaitMinutes": 42, "staffingCoveragePct": 95.0 }
+      }
+    },
+    {
+      "date": "2026-06-20",
+      "label": "Jun 20",
+      "departments": {
+        "ed": { "patientVolume": 178, "occupancyPct": 91.3, "avgWaitMinutes": 192, "staffingCoveragePct": 89.1 },
+        "icu": { "patientVolume": 50, "occupancyPct": 101.4, "avgWaitMinutes": 104, "staffingCoveragePct": 92.2 },
+        "med_surg": { "patientVolume": 138, "occupancyPct": 85.4, "avgWaitMinutes": 53, "staffingCoveragePct": 92.9 },
+        "maternity": { "patientVolume": 70, "occupancyPct": 77.2, "avgWaitMinutes": 35, "staffingCoveragePct": 96.1 },
+        "pediatrics": { "patientVolume": 66, "occupancyPct": 75.9, "avgWaitMinutes": 43, "staffingCoveragePct": 94.8 }
+      }
+    },
+    {
+      "date": "2026-06-21",
+      "label": "Jun 21",
+      "departments": {
+        "ed": { "patientVolume": 181, "occupancyPct": 92.1, "avgWaitMinutes": 201, "staffingCoveragePct": 88.7 },
+        "icu": { "patientVolume": 51, "occupancyPct": 102.8, "avgWaitMinutes": 118, "staffingCoveragePct": 91.7 },
+        "med_surg": { "patientVolume": 140, "occupancyPct": 86.0, "avgWaitMinutes": 54, "staffingCoveragePct": 92.5 },
+        "maternity": { "patientVolume": 71, "occupancyPct": 77.6, "avgWaitMinutes": 36, "staffingCoveragePct": 95.7 },
+        "pediatrics": { "patientVolume": 67, "occupancyPct": 76.3, "avgWaitMinutes": 44, "staffingCoveragePct": 94.5 }
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "label": "Jun 22",
+      "departments": {
+        "ed": { "patientVolume": 184, "occupancyPct": 92.7, "avgWaitMinutes": 208, "staffingCoveragePct": 88.3 },
+        "icu": { "patientVolume": 52, "occupancyPct": 103.6, "avgWaitMinutes": 132, "staffingCoveragePct": 90.9 },
+        "med_surg": { "patientVolume": 142, "occupancyPct": 86.7, "avgWaitMinutes": 55, "staffingCoveragePct": 92.1 },
+        "maternity": { "patientVolume": 73, "occupancyPct": 78.0, "avgWaitMinutes": 36, "staffingCoveragePct": 95.5 },
+        "pediatrics": { "patientVolume": 68, "occupancyPct": 76.7, "avgWaitMinutes": 45, "staffingCoveragePct": 94.1 }
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "label": "Jun 23",
+      "departments": {
+        "ed": { "patientVolume": 187, "occupancyPct": 93.6, "avgWaitMinutes": 216, "staffingCoveragePct": 87.8 },
+        "icu": { "patientVolume": 53, "occupancyPct": 104.2, "avgWaitMinutes": 146, "staffingCoveragePct": 90.1 },
+        "med_surg": { "patientVolume": 144, "occupancyPct": 87.4, "avgWaitMinutes": 56, "staffingCoveragePct": 91.6 },
+        "maternity": { "patientVolume": 74, "occupancyPct": 78.3, "avgWaitMinutes": 37, "staffingCoveragePct": 95.0 },
+        "pediatrics": { "patientVolume": 69, "occupancyPct": 77.1, "avgWaitMinutes": 45, "staffingCoveragePct": 93.7 }
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "label": "Jun 24",
+      "departments": {
+        "ed": { "patientVolume": 191, "occupancyPct": 94.1, "avgWaitMinutes": 223, "staffingCoveragePct": 87.2 },
+        "icu": { "patientVolume": 54, "occupancyPct": 104.9, "avgWaitMinutes": 161, "staffingCoveragePct": 89.4 },
+        "med_surg": { "patientVolume": 146, "occupancyPct": 88.1, "avgWaitMinutes": 58, "staffingCoveragePct": 91.1 },
+        "maternity": { "patientVolume": 75, "occupancyPct": 78.8, "avgWaitMinutes": 37, "staffingCoveragePct": 94.8 },
+        "pediatrics": { "patientVolume": 70, "occupancyPct": 77.6, "avgWaitMinutes": 46, "staffingCoveragePct": 93.2 }
+      }
+    },
+    {
+      "date": "2026-06-25",
+      "label": "Jun 25",
+      "departments": {
+        "ed": { "patientVolume": 194, "occupancyPct": 94.6, "avgWaitMinutes": 232, "staffingCoveragePct": 86.7 },
+        "icu": { "patientVolume": 55, "occupancyPct": 105.4, "avgWaitMinutes": 178, "staffingCoveragePct": 88.6 },
+        "med_surg": { "patientVolume": 149, "occupancyPct": 88.8, "avgWaitMinutes": 59, "staffingCoveragePct": 90.7 },
+        "maternity": { "patientVolume": 76, "occupancyPct": 79.0, "avgWaitMinutes": 38, "staffingCoveragePct": 94.5 },
+        "pediatrics": { "patientVolume": 72, "occupancyPct": 78.1, "avgWaitMinutes": 47, "staffingCoveragePct": 92.8 }
+      }
+    },
+    {
+      "date": "2026-06-26",
+      "label": "Jun 26",
+      "departments": {
+        "ed": { "patientVolume": 198, "occupancyPct": 95.1, "avgWaitMinutes": 238, "staffingCoveragePct": 86.1 },
+        "icu": { "patientVolume": 56, "occupancyPct": 105.9, "avgWaitMinutes": 194, "staffingCoveragePct": 87.9 },
+        "med_surg": { "patientVolume": 151, "occupancyPct": 89.4, "avgWaitMinutes": 60, "staffingCoveragePct": 90.2 },
+        "maternity": { "patientVolume": 77, "occupancyPct": 79.4, "avgWaitMinutes": 39, "staffingCoveragePct": 94.2 },
+        "pediatrics": { "patientVolume": 73, "occupancyPct": 78.6, "avgWaitMinutes": 47, "staffingCoveragePct": 92.5 }
+      }
+    }
+  ],
+  "alerts": [
+    { "id": "AL-9021", "date": "2026-06-26", "departmentId": "icu", "type": "Capacity", "severity": "Critical", "message": "ICU occupancy has remained above 105% for 48 hours." },
+    { "id": "AL-9016", "date": "2026-06-26", "departmentId": "ed", "type": "Wait Time", "severity": "Critical", "message": "ED average wait time exceeded 4 hours." },
+    { "id": "AL-9009", "date": "2026-06-25", "departmentId": "icu", "type": "Staffing", "severity": "Critical", "message": "ICU staffing coverage dropped below 89%." },
+    { "id": "AL-9001", "date": "2026-06-25", "departmentId": "med_surg", "type": "Staffing", "severity": "Watch", "message": "Med-Surg staffing trend declined for three consecutive days." },
+    { "id": "AL-8993", "date": "2026-06-24", "departmentId": "ed", "type": "Throughput", "severity": "Watch", "message": "ED patient inflow increased 6% day over day." },
+    { "id": "AL-8984", "date": "2026-06-24", "departmentId": "icu", "type": "Capacity", "severity": "Critical", "message": "ICU occupancy crossed 104.5%." },
+    { "id": "AL-8976", "date": "2026-06-23", "departmentId": "icu", "type": "Wait Time", "severity": "Watch", "message": "ICU transfer wait is trending above target." },
+    { "id": "AL-8968", "date": "2026-06-23", "departmentId": "ed", "type": "Wait Time", "severity": "Watch", "message": "ED wait time now above 215 minutes." },
+    { "id": "AL-8960", "date": "2026-06-22", "departmentId": "maternity", "type": "Quality", "severity": "Normal", "message": "Maternity handoff compliance back to baseline." },
+    { "id": "AL-8951", "date": "2026-06-21", "departmentId": "pediatrics", "type": "Capacity", "severity": "Normal", "message": "Pediatrics occupancy stable within expected range." },
+    { "id": "AL-8942", "date": "2026-06-20", "departmentId": "icu", "type": "Capacity", "severity": "Watch", "message": "ICU occupancy exceeded 101% overnight." },
+    { "id": "AL-8935", "date": "2026-06-19", "departmentId": "ed", "type": "Staffing", "severity": "Watch", "message": "ED staffing coverage below 90% threshold." }
+  ]
+}
