@@ -258,17 +258,11 @@ const departmentFilterItems = computed(() => [
           <p class="eyebrow">Operational Dashboard</p>
           <h1 class="app-title">Mercy General - Clinical Operations</h1>
         </div>
-        <v-select
-          v-model="selectedDepartment"
-          :items="departmentFilterItems"
-          item-title="title"
-          item-value="value"
-          label="Department"
-          density="comfortable"
-          hide-details
-          variant="outlined"
-          class="department-select"
-        />
+        <select v-model="selectedDepartment" class="department-select">
+          <option v-for="item in departmentFilterItems" :key="item.value" :value="item.value">
+            {{ item.title }}
+          </option>
+        </select>
       </div>
     </header>
 
@@ -436,22 +430,29 @@ const departmentFilterItems = computed(() => [
   line-height: 1.15;
 }
 
-.department-select {
-  flex-shrink: 0;
-  width: 260px;
-  background: #ffffff;
-  border-radius: 4px;
-}
-
-.department-select :deep(.v-field) {
-  background: #ffffff;
-  border: 1px solid #e2e6eb;
-}
-
-.department-select :deep(.v-field--focused) {
-  border-color: #0c62fb;
-  box-shadow: 0 0 0 3px rgba(12, 98, 251, 0.1);
-}
+  .department-select {
+    flex-shrink: 0;
+    width: 260px;
+    background: #ffffff;
+    border: 2px solid #e6e6e6;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: #1b2733;
+    font-family: Inter, system-ui, sans-serif;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+    
+  .department-select:hover {
+    border-color: #c0c0c0;
+  }
+    
+  .department-select:focus {
+    outline: none;
+    border-color: #0c62fb;
+    box-shadow: 0 0 0 3px rgba(12, 98, 251, 0.1);
+  }
 
 .shell {
   max-width: 1280px;
