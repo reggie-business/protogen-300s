@@ -348,7 +348,10 @@ const departmentFilterItems = computed(() => [
               <h2>Active Alerts</h2>
               <span>{{ filteredAlerts.length }} items</span>
             </div>
-            <v-table density="compact" class="alerts-table">
+            <div v-if="filteredAlerts.length === 0" class="empty-state">
+              <p>No active alerts for this department.</p>
+            </div>
+            <v-table v-else density="compact" class="alerts-table">
               <thead>
                 <tr>
                   <th>Alert ID</th>
@@ -436,6 +439,18 @@ const departmentFilterItems = computed(() => [
 .department-select {
   flex-shrink: 0;
   width: 260px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.department-select :deep(.v-field) {
+  background: #ffffff;
+  border: 1px solid #e2e6eb;
+}
+
+.department-select :deep(.v-field--focused) {
+  border-color: #0c62fb;
+  box-shadow: 0 0 0 3px rgba(12, 98, 251, 0.1);
 }
 
 .shell {
@@ -533,6 +548,13 @@ const departmentFilterItems = computed(() => [
   font-size: 0.8rem;
   color: #0f766e;
   font-weight: 600;
+}
+
+.empty-state {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #5d6a75;
+  font-size: 0.95rem;
 }
 
 /* Tablet (768px - 1023px) */
