@@ -251,10 +251,10 @@ const departmentFilterItems = computed(() => [
 </script>
 
 <template>
-  <v-app>
-    <v-app-bar flat color="surface" class="dashboard-bar">
-      <v-container class="shell d-flex align-center justify-space-between py-0" fluid>
-        <div>
+  <div class="dashboard-wrapper">
+    <header class="dashboard-header">
+      <div class="shell header-content">
+        <div class="header-left">
           <p class="eyebrow">Operational Dashboard</p>
           <h1 class="app-title">Mercy General - Clinical Operations</h1>
         </div>
@@ -269,135 +269,151 @@ const departmentFilterItems = computed(() => [
           variant="outlined"
           class="department-select"
         />
-      </v-container>
-    </v-app-bar>
+      </div>
+    </header>
 
-    <v-main>
-      <v-container class="shell page-content" fluid>
-        <v-row class="mb-1" density="comfortable">
-          <v-col v-for="card in metricCards" :key="card.label" cols="12" md="6" lg="3">
+    <main class="dashboard-main">
+      <div class="shell">
+        <section class="kpi-section">
+          <div class="kpi-grid">
             <MetricCard
+              v-for="card in metricCards"
+              :key="card.label"
               :label="card.label"
               :value="card.value"
               :unit="card.unit"
               :trend="card.trend"
               :delta="card.delta"
               :delta-is-good="card.deltaIsGood"
+              class="kpi-tile"
             />
-          </v-col>
-        </v-row>
+          </div>
+        </section>
 
-        <v-row class="mt-1" density="comfortable">
-          <v-col cols="12" lg="7">
-            <v-card class="panel-card pa-5" border>
-              <div class="panel-heading">
-                <h2>Bed Occupancy Trend</h2>
-                <span>Last 14 days</span>
-              </div>
-              <div class="chart-wrap">
-                <Line :data="occupancyChartData" :options="occupancyChartOptions" />
-              </div>
-            </v-card>
-          </v-col>
+        <section class="content-section">
+          <div class="content-grid">
+            <div class="chart-panel">
+              <v-card class="panel-card pa-5" border>
+                <div class="panel-heading">
+                  <h2>Bed Occupancy Trend</h2>
+                  <span>Last 14 days</span>
+                </div>
+                <div class="chart-wrap">
+                  <Line :data="occupancyChartData" :options="occupancyChartOptions" />
+                </div>
+              </v-card>
+            </div>
 
-          <v-col cols="12" lg="5">
-            <v-card class="panel-card pa-5" border>
-              <div class="panel-heading">
-                <h2>Department Performance</h2>
-                <span>Today</span>
-              </div>
-              <v-table density="compact" class="dept-table">
-                <thead>
-                  <tr>
-                    <th>Department</th>
-                    <th class="text-right">Volume</th>
-                    <th class="text-right">Occupancy</th>
-                    <th class="text-right">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="row in departmentRows" :key="row.id">
-                    <td>{{ row.name }}</td>
-                    <td class="text-right">{{ row.volume }}</td>
-                    <td class="text-right">{{ row.occupancyPct.toFixed(1) }}%</td>
-                    <td class="text-right">
-                      <v-chip
-                        :color="severityColor(row.severity)"
-                        size="small"
-                        variant="tonal"
-                        label
-                      >
-                        {{ row.severity }}
-                      </v-chip>
-                    </td>
-                  </tr>
-                </tbody>
-              </v-table>
-            </v-card>
-          </v-col>
-        </v-row>
+            <div class="table-panel">
+              <v-card class="panel-card pa-5" border>
+                <div class="panel-heading">
+                  <h2>Department Performance</h2>
+                  <span>Today</span>
+                </div>
+                <v-table density="compact" class="dept-table">
+                  <thead>
+                    <tr>
+                      <th>Department</th>
+                      <th class="text-right">Volume</th>
+                      <th class="text-right">Occupancy</th>
+                      <th class="text-right">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="row in departmentRows" :key="row.id">
+                      <td>{{ row.name }}</td>
+                      <td class="text-right">{{ row.volume }}</td>
+                      <td class="text-right">{{ row.occupancyPct.toFixed(1) }}%</td>
+                      <td class="text-right">
+                        <v-chip
+                          :color="severityColor(row.severity)"
+                          size="small"
+                          variant="tonal"
+                          label
+                        >
+                          {{ row.severity }}
+                        </v-chip>
+                      </td>
+                    </tr>
+                  </tbody>
+                </v-table>
+              </v-card>
+            </div>
+          </div>
+        </section>
 
-        <v-row class="mt-1" density="comfortable">
-          <v-col cols="12">
-            <v-card class="panel-card pa-5" border>
-              <div class="panel-heading">
-                <h2>Active Alerts</h2>
-                <span>{{ filteredAlerts.length }} items</span>
-              </div>
-              <v-table density="compact" class="alerts-table">
-                <thead>
-                  <tr>
-                    <th>Alert ID</th>
-                    <th>Date</th>
-                    <th>Department</th>
-                    <th>Type</th>
-                    <th>Details</th>
-                    <th class="text-right">Severity</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="alert in filteredAlerts" :key="alert.id">
-                    <td><span class="id-chip">{{ alert.id }}</span></td>
-                    <td>{{ alert.date }}</td>
-                    <td>{{ departmentName(alert.departmentId) }}</td>
-                    <td>{{ alert.type }}</td>
-                    <td>{{ alert.message }}</td>
-                    <td class="text-right">
-                      <v-chip
-                        :color="severityColor(alert.severity)"
-                        size="small"
-                        variant="tonal"
-                        label
-                      >
-                        {{ alert.severity }}
-                      </v-chip>
-                    </td>
-                  </tr>
-                </tbody>
-              </v-table>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-  </v-app>
+        <section class="alerts-section">
+          <v-card class="panel-card pa-5" border>
+            <div class="panel-heading">
+              <h2>Active Alerts</h2>
+              <span>{{ filteredAlerts.length }} items</span>
+            </div>
+            <v-table density="compact" class="alerts-table">
+              <thead>
+                <tr>
+                  <th>Alert ID</th>
+                  <th>Date</th>
+                  <th>Department</th>
+                  <th>Type</th>
+                  <th>Details</th>
+                  <th class="text-right">Severity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="alert in filteredAlerts" :key="alert.id">
+                  <td><span class="id-chip">{{ alert.id }}</span></td>
+                  <td>{{ alert.date }}</td>
+                  <td>{{ departmentName(alert.departmentId) }}</td>
+                  <td>{{ alert.type }}</td>
+                  <td>{{ alert.message }}</td>
+                  <td class="text-right">
+                    <v-chip
+                      :color="severityColor(alert.severity)"
+                      size="small"
+                      variant="tonal"
+                      label
+                    >
+                      {{ alert.severity }}
+                    </v-chip>
+                  </td>
+                </tr>
+              </tbody>
+            </v-table>
+          </v-card>
+        </section>
+      </div>
+    </main>
+  </div>
 </template>
 
 <style scoped>
-.dashboard-bar {
+.dashboard-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fa;
+}
+
+.dashboard-header {
+  background: #ffffff;
   border-bottom: 1px solid #e2e6eb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.shell {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  gap: 2rem;
 }
 
-.page-content {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.header-left {
+  flex: 1;
+  min-width: 0;
 }
 
 .eyebrow {
@@ -410,7 +426,7 @@ const departmentFilterItems = computed(() => [
 }
 
 .app-title {
-  margin: 0.2rem 0 0;
+  margin: 0.35rem 0 0;
   color: #1b2733;
   font-size: clamp(1.2rem, 1.8vw, 1.7rem);
   font-weight: 800;
@@ -418,13 +434,65 @@ const departmentFilterItems = computed(() => [
 }
 
 .department-select {
-  max-width: 260px;
-  min-width: 230px;
+  flex-shrink: 0;
+  width: 260px;
+}
+
+.shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.kpi-section {
+  margin-bottom: 2rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.kpi-tile {
+  width: 100%;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.chart-panel {
+  width: 100%;
+}
+
+.table-panel {
+  width: 100%;
+}
+
+.alerts-section {
+  width: 100%;
 }
 
 .panel-card {
   background: #ffffff;
   border-color: #e2e6eb;
+  width: 100%;
 }
 
 .panel-heading {
@@ -467,19 +535,82 @@ const departmentFilterItems = computed(() => [
   font-weight: 600;
 }
 
-@media (max-width: 960px) {
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+  .shell {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .department-select {
+    width: 100%;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-wrap {
+    height: 280px;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
   .shell {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  .department-select {
-    max-width: 190px;
-    min-width: 170px;
+  .dashboard-main {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .kpi-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .content-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .panel-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
   }
 
   .chart-wrap {
     height: 250px;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+  }
+
+  .app-title {
+    font-size: 1.2rem;
+    margin-top: 0.25rem;
   }
 }
 </style>
