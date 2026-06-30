@@ -15,6 +15,7 @@ import {
 } from 'chart.js'
 
 import MetricCard from '../components/MetricCard.vue'
+import mercyMark from '../../mercy-mark.svg'
 import metricsRaw from '../data/metrics.json'
 import type {
   AggregateMetrics,
@@ -155,7 +156,7 @@ const occupancyChartData = computed<ChartData<'line'>>(() => ({
       label: 'Bed Occupancy %',
       data: filteredSeries.value.map((point) => point.metrics.occupancyPct),
       borderColor: '#2B7A78',
-      backgroundColor: 'rgba(58, 175, 169, 0.2)',
+      backgroundColor: 'rgba(58, 175, 169, 0.26)',
       fill: true,
       borderWidth: 2,
       tension: 0.3,
@@ -181,15 +182,19 @@ const occupancyChartOptions: ChartOptions<'line'> = {
   scales: {
     y: {
       grid: {
-        color: '#B9D9D7',
+        color: '#C2DEDB',
       },
       ticks: {
+        color: '#17252A',
         callback: (value) => `${value}%`,
       },
     },
     x: {
       grid: {
         display: false,
+      },
+      ticks: {
+        color: '#17252A',
       },
     },
   },
@@ -239,9 +244,9 @@ const departmentName = (departmentId: DepartmentId): string => {
 }
 
 const severityColor = (severity: Severity): string => {
-  if (severity === 'Critical') return 'error'
-  if (severity === 'Watch') return 'warning'
-  return 'success'
+  if (severity === 'Critical') return 'severity-critical'
+  if (severity === 'Watch') return 'severity-watch'
+  return 'severity-normal'
 }
 
 const departmentFilterItems = computed(() => [
@@ -257,7 +262,7 @@ const departmentFilterItems = computed(() => [
         <div class="header-left">
           <div class="brand-lockup">
             <div class="brand-mark" aria-hidden="true">
-              <span></span>
+              <img :src="mercyMark" alt="" />
             </div>
             <div class="brand-copy">
               <h1 class="wordmark">Mercy General</h1>
@@ -295,7 +300,7 @@ const departmentFilterItems = computed(() => [
         <section class="content-section">
           <div class="content-grid">
             <div class="chart-panel">
-              <v-card class="panel-card pa-5" border>
+              <v-card class="panel-card pa-5">
                 <div class="panel-heading">
                   <h2>Bed Occupancy Trend</h2>
                   <span>Last 14 days</span>
@@ -307,7 +312,7 @@ const departmentFilterItems = computed(() => [
             </div>
 
             <div class="table-panel">
-              <v-card class="panel-card pa-5" border>
+              <v-card class="panel-card pa-5">
                 <div class="panel-heading">
                   <h2>Department Performance</h2>
                   <span>Today</span>
@@ -329,8 +334,9 @@ const departmentFilterItems = computed(() => [
                       <td class="text-right">
                         <v-chip
                           :color="severityColor(row.severity)"
+                          class="status-chip"
                           size="small"
-                          variant="tonal"
+                          variant="flat"
                           label
                         >
                           {{ row.severity }}
@@ -345,7 +351,7 @@ const departmentFilterItems = computed(() => [
         </section>
 
         <section class="alerts-section">
-          <v-card class="panel-card pa-5" border>
+          <v-card class="panel-card pa-5">
             <div class="panel-heading">
               <h2>Active Alerts</h2>
               <span>{{ filteredAlerts.length }} items</span>
@@ -374,8 +380,9 @@ const departmentFilterItems = computed(() => [
                   <td class="text-right">
                     <v-chip
                       :color="severityColor(alert.severity)"
+                      class="status-chip"
                       size="small"
-                      variant="tonal"
+                      variant="flat"
                       label
                     >
                       {{ alert.severity }}
@@ -406,7 +413,7 @@ const departmentFilterItems = computed(() => [
 
 .dashboard-header {
   background: #feffff;
-  border-bottom: 1px solid #b9d9d7;
+  border-bottom: 2px solid #2b7a78;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -442,33 +449,11 @@ const departmentFilterItems = computed(() => [
   background: #def2f1;
 }
 
-.brand-mark span {
-  position: relative;
-  display: inline-block;
+.brand-mark img {
   width: 1rem;
   height: 1rem;
-}
-
-.brand-mark span::before,
-.brand-mark span::after {
-  content: '';
-  position: absolute;
-  background: #2b7a78;
-  border-radius: 2px;
-}
-
-.brand-mark span::before {
-  width: 1rem;
-  height: 0.2rem;
-  top: 0.4rem;
-  left: 0;
-}
-
-.brand-mark span::after {
-  width: 0.2rem;
-  height: 1rem;
-  left: 0.4rem;
-  top: 0;
+  display: block;
+  object-fit: contain;
 }
 
 .wordmark {
@@ -574,7 +559,10 @@ const departmentFilterItems = computed(() => [
 
 .panel-card {
   background: #feffff;
-  border-color: #b9d9d7;
+  border: 1px solid #c2dedb;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(23, 37, 42, 0.05);
+  overflow: hidden;
   width: 100%;
 }
 
@@ -627,6 +615,37 @@ const departmentFilterItems = computed(() => [
 .dept-table :deep(table),
 .alerts-table :deep(table) {
   background: #feffff;
+}
+
+.dept-table :deep(.v-table__wrapper),
+.alerts-table :deep(.v-table__wrapper) {
+  background: #feffff;
+}
+
+.status-chip {
+  min-width: 74px;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.status-chip :deep(.v-chip__content) {
+  color: inherit;
+}
+
+:deep(.severity-critical) {
+  background: #c0392b !important;
+  color: #feffff !important;
+}
+
+:deep(.severity-watch) {
+  background: #e8a13c !important;
+  color: #17252a !important;
+}
+
+:deep(.severity-normal) {
+  background: #dce9e8 !important;
+  color: #4f6f6d !important;
 }
 
 .id-chip {
