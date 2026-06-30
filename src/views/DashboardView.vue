@@ -154,8 +154,8 @@ const occupancyChartData = computed<ChartData<'line'>>(() => ({
     {
       label: 'Bed Occupancy %',
       data: filteredSeries.value.map((point) => point.metrics.occupancyPct),
-      borderColor: '#0F766E',
-      backgroundColor: 'rgba(15, 118, 110, 0.18)',
+      borderColor: '#2B7A78',
+      backgroundColor: 'rgba(58, 175, 169, 0.2)',
       fill: true,
       borderWidth: 2,
       tension: 0.3,
@@ -181,7 +181,7 @@ const occupancyChartOptions: ChartOptions<'line'> = {
   scales: {
     y: {
       grid: {
-        color: '#E2E6EB',
+        color: '#B9D9D7',
       },
       ticks: {
         callback: (value) => `${value}%`,
@@ -255,8 +255,16 @@ const departmentFilterItems = computed(() => [
     <header class="dashboard-header">
       <div class="shell header-content">
         <div class="header-left">
-          <p class="eyebrow">Operational Dashboard</p>
-          <h1 class="app-title">Mercy General - Clinical Operations</h1>
+          <div class="brand-lockup">
+            <div class="brand-mark" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="brand-copy">
+              <h1 class="wordmark">Mercy General</h1>
+              <p class="system-line">Mercy General Health System</p>
+            </div>
+          </div>
+          <p class="app-subtitle">Clinical Operations</p>
         </div>
         <select v-model="selectedDepartment" class="department-select">
           <option v-for="item in departmentFilterItems" :key="item.value" :value="item.value">
@@ -378,6 +386,10 @@ const departmentFilterItems = computed(() => [
             </v-table>
           </v-card>
         </section>
+
+        <footer class="institutional-footer">
+          Mercy General Health System | Internal Clinical Operations Dashboard | Confidential
+        </footer>
       </div>
     </main>
   </div>
@@ -388,12 +400,13 @@ const departmentFilterItems = computed(() => [
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #f7f8fa;
+  background: #def2f1;
+  color: #17252a;
 }
 
 .dashboard-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e6eb;
+  background: #feffff;
+  border-bottom: 1px solid #b9d9d7;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -403,8 +416,8 @@ const departmentFilterItems = computed(() => [
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
   gap: 2rem;
 }
 
@@ -413,46 +426,100 @@ const departmentFilterItems = computed(() => [
   min-width: 0;
 }
 
-.eyebrow {
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-mark {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  border: 2px solid #3aafa9;
+  display: grid;
+  place-items: center;
+  background: #def2f1;
+}
+
+.brand-mark span {
+  position: relative;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.brand-mark span::before,
+.brand-mark span::after {
+  content: '';
+  position: absolute;
+  background: #2b7a78;
+  border-radius: 2px;
+}
+
+.brand-mark span::before {
+  width: 1rem;
+  height: 0.2rem;
+  top: 0.4rem;
+  left: 0;
+}
+
+.brand-mark span::after {
+  width: 0.2rem;
+  height: 1rem;
+  left: 0.4rem;
+  top: 0;
+}
+
+.wordmark {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: clamp(1.25rem, 1.85vw, 1.75rem);
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 600;
+  color: #17252a;
+  line-height: 1.1;
+}
+
+.system-line {
+  margin: 0;
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #48606f;
-  font-weight: 700;
+  color: #17252a;
+  font-weight: 600;
 }
 
-.app-title {
-  margin: 0.35rem 0 0;
-  color: #1b2733;
-  font-size: clamp(1.2rem, 1.8vw, 1.7rem);
-  font-weight: 800;
-  line-height: 1.15;
+.app-subtitle {
+  margin: 0.5rem 0 0;
+  color: #17252a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
 }
 
-  .department-select {
-    flex-shrink: 0;
-    width: 260px;
-    background: #ffffff;
-    border: 2px solid #e6e6e6;
-    border-radius: 4px;
-    padding: 0.75rem 1rem;
-    font-size: 0.95rem;
-    color: #1b2733;
-    font-family: Inter, system-ui, sans-serif;
-    cursor: pointer;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-    
-  .department-select:hover {
-    border-color: #c0c0c0;
-  }
-    
-  .department-select:focus {
-    outline: none;
-    border-color: #0c62fb;
-    box-shadow: 0 0 0 3px rgba(12, 98, 251, 0.1);
-  }
+.department-select {
+  flex-shrink: 0;
+  width: 280px;
+  background: #feffff;
+  border: 2px solid #3aafa9;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: #17252a;
+  font-family: 'IBM Plex Sans', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.department-select:hover {
+  border-color: #2b7a78;
+}
+
+.department-select:focus {
+  outline: none;
+  border-color: #2b7a78;
+  box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.25);
+}
 
 .shell {
   max-width: 1280px;
@@ -506,8 +573,8 @@ const departmentFilterItems = computed(() => [
 }
 
 .panel-card {
-  background: #ffffff;
-  border-color: #e2e6eb;
+  background: #feffff;
+  border-color: #b9d9d7;
   width: 100%;
 }
 
@@ -521,12 +588,12 @@ const departmentFilterItems = computed(() => [
 .panel-heading h2 {
   margin: 0;
   font-size: 1.02rem;
-  color: #1b2733;
+  color: #17252a;
   font-weight: 700;
 }
 
 .panel-heading span {
-  color: #5d6a75;
+  color: #17252a;
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -537,25 +604,54 @@ const departmentFilterItems = computed(() => [
 
 .dept-table th,
 .alerts-table th {
-  color: #4c616f;
+  color: #17252a;
+  background: #eaf7f6;
+  border-bottom: 1px solid #b9d9d7;
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
+.dept-table :deep(td),
+.alerts-table :deep(td) {
+  color: #17252a;
+  border-bottom: 1px solid #d1e7e5;
+}
+
+.dept-table :deep(tr:last-child td),
+.alerts-table :deep(tr:last-child td) {
+  border-bottom: none;
+}
+
+.dept-table :deep(table),
+.alerts-table :deep(table) {
+  background: #feffff;
+}
+
 .id-chip {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8rem;
-  color: #0f766e;
+  color: #17252a;
   font-weight: 600;
 }
 
 .empty-state {
   padding: 2rem 1rem;
   text-align: center;
-  color: #5d6a75;
+  color: #17252a;
   font-size: 0.95rem;
+}
+
+.institutional-footer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #9dc9c6;
+  color: #17252a;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 /* Tablet (768px - 1023px) */
@@ -577,6 +673,8 @@ const departmentFilterItems = computed(() => [
 
   .department-select {
     width: 100%;
+    max-width: 360px;
+    align-self: flex-end;
   }
 
   .kpi-grid {
@@ -627,13 +725,22 @@ const departmentFilterItems = computed(() => [
     height: 250px;
   }
 
-  .eyebrow {
-    font-size: 0.7rem;
+  .brand-mark {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 8px;
   }
 
-  .app-title {
+  .wordmark {
     font-size: 1.2rem;
-    margin-top: 0.25rem;
+  }
+
+  .system-line {
+    font-size: 0.65rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.82rem;
   }
 }
 </style>

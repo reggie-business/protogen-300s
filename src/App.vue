@@ -65,22 +65,22 @@ const unlockDashboard = () => {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f7f8fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #def2f1 0%, #feffff 100%);
 }
 
 .gate-card {
   width: 100%;
   max-width: 420px;
-  background: #ffffff;
-  border: 1px solid #e2e6eb;
+  background: #feffff;
+  border: 1px solid #b9d9d7;
   border-radius: 12px;
   padding: 2.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 26px rgba(23, 37, 42, 0.08);
 }
 
 .gate-eyebrow {
   margin: 0;
-  color: #0f766e;
+  color: #2b7a78;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.76rem;
@@ -89,7 +89,7 @@ const unlockDashboard = () => {
 
 .gate-title {
   margin: 0.35rem 0 0;
-  color: #1b2733;
+  color: #17252a;
   font-size: 1.55rem;
   line-height: 1.15;
   font-weight: 800;
@@ -97,7 +97,7 @@ const unlockDashboard = () => {
 
 .gate-copy {
   margin: 1rem 0 0;
-  color: #5d6a75;
+  color: #17252a;
   font-size: 0.95rem;
 }
 
@@ -117,34 +117,34 @@ const unlockDashboard = () => {
 .form-label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #1b2733;
+  color: #17252a;
 }
 
 .form-input {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  color: #000000;
-  background-color: #ffffff;
-  border: 2px solid #e6e6e6;
+  color: #17252a;
+  background-color: #feffff;
+  border: 2px solid #b9d9d7;
   border-radius: 6px;
-  font-family: Inter, sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   transition: border-color 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
 }
 
 .form-input:hover {
-  border-color: #d0d0d0;
+  border-color: #3aafa9;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #0c62fb;
-  box-shadow: 0 0 0 3px rgba(12, 98, 251, 0.1);
+  border-color: #2b7a78;
+  box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.22);
 }
 
 .form-input::placeholder {
-  color: #a0a0a0;
+  color: #557175;
 }
 
 .form-error {
@@ -161,32 +161,32 @@ const unlockDashboard = () => {
   padding: 0.9rem 1.2rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
-  background-color: #0c62fb;
+  color: #feffff;
+  background-color: #2b7a78;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-family: Inter, sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   transition: background-color 0.2s, box-shadow 0.2s;
   margin-top: 0.5rem;
 }
 
 .form-button:hover:not(:disabled) {
-  background-color: #0a4fcf;
-  box-shadow: 0 4px 12px rgba(12, 98, 251, 0.3);
+  background-color: #246664;
+  box-shadow: 0 4px 12px rgba(43, 122, 120, 0.28);
 }
 
 .form-button:active:not(:disabled) {
-  background-color: #084dbe;
+  background-color: #1d5352;
 }
 
 .form-button:disabled {
-  background-color: #b0b0b0;
+  background-color: #8eaead;
   cursor: not-allowed;
 }
 
 .form-button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(12, 98, 251, 0.2);
+  box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.25);
 }
 </style>

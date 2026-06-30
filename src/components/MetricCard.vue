@@ -55,14 +55,14 @@ const deltaText = computed(() => {
 
 <style scoped>
 .metric-card {
-  background: #ffffff;
-  border-color: #e2e6eb;
+  background: #feffff;
+  border-color: #b9d9d7;
   min-height: 132px;
 }
 
 .metric-label {
   margin: 0;
-  color: #5d6a75;
+  color: #17252a;
   font-size: 0.83rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -71,7 +71,7 @@ const deltaText = computed(() => {
 
 .metric-value {
   margin: 0.6rem 0;
-  color: #1b2733;
+  color: #17252a;
   font-size: 2rem;
   line-height: 1.1;
   font-weight: 800;
@@ -94,6 +94,6 @@ const deltaText = computed(() => {
 }
 
 .neutral {
-  color: #5d6a75;
+  color: #17252a;
 }
 </style>

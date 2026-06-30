@@ -6,15 +6,15 @@ import { createVuetify } from 'vuetify'
 const clinicalTheme = {
   dark: false,
   colors: {
-    background: '#F7F8FA',
-    surface: '#FFFFFF',
-    'surface-variant': '#F1F4F7',
-    primary: '#0F766E',
-    secondary: '#1B2733',
+    background: '#DEF2F1',
+    surface: '#FEFFFF',
+    'surface-variant': '#EAF7F6',
+    primary: '#2B7A78',
+    secondary: '#3AAFA9',
     success: '#2E7D32',
-    warning: '#F9A825',
+    warning: '#B7791F',
     error: '#D32F2F',
-    'on-surface': '#1B2733',
+    'on-surface': '#17252A',
   },
 }
 
